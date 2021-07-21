@@ -1,11 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import NextLink from 'next/link';
-import Image from "next/image"
 
-
-// const BASE_URL = 'http://alurakut.vercel.app/';
-// const v = '20';
 
 
 function Link({ href, children, ...props }) {
@@ -21,12 +17,12 @@ function Link({ href, children, ...props }) {
 // ================================================================================================================
 // Menu
 // ================================================================================================================
-export function AlurakutMenu({ githubUser }) {
+export function OuterkutMenu({ githubUser }) {
   const [isMenuOpen, setMenuState] = React.useState(false);
   return (
-    <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
+    <OuterkutMenu.Wrapper isMenuOpen={isMenuOpen}>
       <div className="container">
-        <AlurakutMenu.Logo src={"icons/outerkut-logo.svg"} />
+        <OuterkutMenu.Logo src={"icons/outerkut-logo.svg"} />
 
         <nav style={{ flex: 1 }}>
           {[{ name: 'Inicio', slug: '/'}, {name: 'Amigos', slug: '/amigos'}, {name: 'Comunidades', slug: '/comunidades'}].map((menuItem) => (
@@ -50,14 +46,14 @@ export function AlurakutMenu({ githubUser }) {
           {!isMenuOpen && <img src={"icons/menu-closed.svg"} />}
         </button>
       </div>
-      <AlurakutMenuProfileSidebar githubUser={githubUser} />
-    </AlurakutMenu.Wrapper>
+      <OuterkutMenuProfileSidebar githubUser={githubUser} />
+    </OuterkutMenu.Wrapper>
   )
 }
-AlurakutMenu.Wrapper = styled.header`
+OuterkutMenu.Wrapper = styled.header`
   width: 100%;
   background-color: #ff6e2b;
-  .alurakutMenuProfileSidebar {
+  .OuterkutMenuProfileSidebar {
     background: #ffe2cf;
     position: fixed;
     z-index: 100;
@@ -157,16 +153,16 @@ AlurakutMenu.Wrapper = styled.header`
     } 
   }
 `;
-AlurakutMenu.Logo = styled.img`
+OuterkutMenu.Logo = styled.img`
   background-color: #ffffff;
   padding: 9px 14px;
   border-radius: 1000px;
   height: 34px;
 `;
 
-function AlurakutMenuProfileSidebar({ githubUser }) {
+function OuterkutMenuProfileSidebar({ githubUser }) {
   return (
-    <div className="alurakutMenuProfileSidebar">
+    <div className="OuterkutMenuProfileSidebar">
       <div>
         <img width="100px" height="100px" src={`https://github.com/${githubUser}.png`} style={{ borderRadius: '8px' }} />
         <hr />
@@ -177,18 +173,18 @@ function AlurakutMenuProfileSidebar({ githubUser }) {
         </p>s
         <hr />
 
-        <AlurakutProfileSidebarMenuDefault />
+        <OuterkutProfileSidebarMenuDefault />
       </div>
     </div>
   )
 }
 
 // ================================================================================================================
-// AlurakutProfileSidebarMenuDefault
+// OuterkutProfileSidebarMenuDefault
 // ================================================================================================================
-export function AlurakutProfileSidebarMenuDefault() {
+export function OuterkutProfileSidebarMenuDefault() {
   return (
-    <AlurakutProfileSidebarMenuDefault.Wrapper>
+    <OuterkutProfileSidebarMenuDefault.Wrapper>
       <nav>
         <a href="/">
           <img src={"icons/user.svg"} />
@@ -218,10 +214,10 @@ export function AlurakutProfileSidebarMenuDefault() {
             Sair
           </a>
       </nav>
-    </AlurakutProfileSidebarMenuDefault.Wrapper>
+    </OuterkutProfileSidebarMenuDefault.Wrapper>
   )
 }
-AlurakutProfileSidebarMenuDefault.Wrapper = styled.div`
+OuterkutProfileSidebarMenuDefault.Wrapper = styled.div`
   a {
     font-size: 12px;
     color: #2E7BB4;
@@ -256,7 +252,7 @@ export function OrkutNostalgicIconSet(props) {
             {name}
           </span>
           <span className="OrkutNostalgicIconSet__number" style={{ gridArea: 'number' }}>
-            <img key={`orkut__icon_set__${slug}_img`} className="OrkutNostalgicIconSet__iconSample" src={"icons/icon.svg"} />
+            <img key={`orkut__icon_set__${slug}_img`} className="OrkutNostalgicIconSet__iconSample" src={`icons/${icon}.svg`} />
             {props[slug] ? props[slug] : 0}
           </span>
         </li>
@@ -275,7 +271,7 @@ export function OrkutNostalgicIconSet(props) {
             <span className="OrkutNostalgicIconSet__iconComplex" className="OrkutNostalgicIconSet__number" style={{ gridArea: 'number' }}>
               {[0, 1, 2].map((_, index) => {
                 const isHeartActive = index <= (total - 1);
-                return <img key={`orkut__icon_set__${slug}_img_${index}`} src={"icons/icon.svg"} style={{ marginRight: '2px', opacity: isHeartActive ? 1 : '0.5' }} />
+                return <img key={`orkut__icon_set__${slug}_img_${index}`} src={`icons/${icon}.svg`} style={{ marginRight: '2px', opacity: isHeartActive ? 1 : '0.5' }} />
               })}
             </span>
           </li>
@@ -458,7 +454,7 @@ const OuterkutLoginScreen = css`
 // ================================================================================================================
 // Reset Styles
 // ================================================================================================================
-export const AlurakutStyles = css`
+export const OuterkutStyles = css`
   *::-webkit-scrollbar {
     width: 8px;
   }

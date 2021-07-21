@@ -7,14 +7,14 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="outerkuLogo.svg"
-   id="svg18"
-   version="1.1"
-   fill="none"
-   viewBox="0 0 319 76"
+   width="319"
    height="76"
-   width="319">
+   viewBox="0 0 319 76"
+   fill="none"
+   version="1.1"
+   id="svg18"
+   sodipodi:docname="outerkut-logo.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
   <metadata
      id="metadata24">
     <rdf:RDF>
@@ -23,42 +23,43 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
      id="defs22" />
   <sodipodi:namedview
-     inkscape:current-layer="svg18"
-     inkscape:window-maximized="0"
-     inkscape:window-y="104"
-     inkscape:window-x="242"
-     inkscape:cy="33.971211"
-     inkscape:cx="178.5519"
-     inkscape:zoom="2.85946"
-     showgrid="false"
-     id="namedview20"
-     inkscape:window-height="861"
-     inkscape:window-width="2070"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0"
-     guidetolerance="10"
-     gridtolerance="10"
-     objecttolerance="10"
-     borderopacity="1"
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
      bordercolor="#666666"
-     pagecolor="#ffffff" />
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2070"
+     inkscape:window-height="861"
+     id="namedview20"
+     showgrid="false"
+     inkscape:zoom="2.85946"
+     inkscape:cx="178.5519"
+     inkscape:cy="33.971211"
+     inkscape:window-x="242"
+     inkscape:window-y="104"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg18" />
   <text
-     transform="scale(1.01289,0.98727404)"
-     id="text28"
-     y="61.810825"
-     x="1.5800947"
+     xml:space="preserve"
      style="font-size:85.7727px;line-height:1.25;font-family:lexend;-inkscape-font-specification:lexend;stroke-width:2.14432"
-     xml:space="preserve"><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Harlow Solid Std';-inkscape-font-specification:'Harlow Solid Std';fill:#000000;stroke-width:2.14432"
-       y="61.810825"
-       x="1.5800947"
+     x="1.5800947"
+     y="61.810825"
+     id="text28"
+     transform="scale(1.01289,0.98727404)"><tspan
+       sodipodi:role="line"
        id="tspan26"
-       sodipodi:role="line">Outerkut</tspan></text>
+       x="1.5800947"
+       y="61.810825"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Harlow Solid Std';-inkscape-font-specification:'Harlow Solid Std';fill:#ff6600;stroke-width:2.14432">Outerkut</tspan></text>
 </svg>
