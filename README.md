@@ -21,6 +21,7 @@ Achei bem horrivel o fato das imagens serem carregadas pelo app deles, se o app 
 * https://www.youtube.com/c/DevSoutinho/videos - Dev Soutino.
 * Reset CSS | Normalize CSS.
 * CSS grid garden (Game).
+* Spread operator (...Array)
 
 ## Comandos Utilizados:
 

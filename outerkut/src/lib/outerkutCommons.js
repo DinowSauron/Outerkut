@@ -87,7 +87,7 @@ OuterkutMenu.Wrapper = styled.header`
       margin-top: 12px;
       margin-bottom: 8px;
       border-color: transparent;
-      border-bottom-color: #ECF2FA;
+      border-bottom-color: #ff6e2b;
     }
   }
   .container {
@@ -170,7 +170,7 @@ function OuterkutMenuProfileSidebar({ githubUser }) {
           <a className="boxLink" href={`/user/${githubUser}`}>
             @{githubUser}
           </a>
-        </p>s
+        </p>
         <hr />
 
         <OuterkutProfileSidebarMenuDefault />
@@ -260,7 +260,6 @@ export function OrkutNostalgicIconSet(props) {
       {[
         { name: 'Confiável', slug: 'confiavel', icon: 'smile' },
         { name: 'Legal', slug: 'legal', icon: 'cool' },
-        { name: 'Sexy', slug: 'sexy', icon: 'heart' },
       ].map(({ name, slug, icon }) => {
         const total = props[slug] ? props[slug] : 2;
         return (
