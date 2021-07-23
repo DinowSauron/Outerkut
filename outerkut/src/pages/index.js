@@ -1,5 +1,5 @@
 
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import MainGrid from "../components/MainGrid"
 import Box from "../components/Box"
 import { ProfileRelationsBoxWrapper } from "../components/ProfileRelations"
@@ -23,30 +23,32 @@ function ProfileSidebar(props){
   )
 }
 
-function ProfileRelationsBox() {
+function ProfileRelationsBox(props) {
   return (
     <ProfileRelationsBoxWrapper >
       <h2 className="smallTitle">
-        Minhas Comunidades ({comunidades.length})
+        {props.title} ({props.items.length})
       </h2>
       <ul>
-        {comunidades.map((comunidade, index) => {
+        {/*props.items.map((item, index) => {
           if(index > 5){
             return;
           }
           return (
-            <li key={comunidade.id}>
-                <a href={comunidade.link} key={comunidade.title} target="_blank">
-                  <img src={comunidade.image}/>
-                  <span>{comunidade.title}</span>
+            <li key={item.id}>
+                <a href={item.link} key={item.title} target="_blank">
+                  <img src={item.image}/>
+                  <span>{item.title}</span>
                 </a>
             </li>
           );
-        })}
+        })*/}
       </ul>
     </ProfileRelationsBoxWrapper>
   )
 }
+
+// 1:06:00
 
 export default function Home() {
 
@@ -69,14 +71,18 @@ export default function Home() {
   const [comunidades, setComunidades] = useState(ComunidadseIniciais);
   const pessoasFavoritas = [...(githubUser!="DinowSauron" ? ["DinowSauron", "LuckyCards"] : ["LuckyCards"]), "SebLague", "FilipeDeschamps", "JVictorDias", "omariosouto",  "peas", "alura-cursos", "rocketseat"];
 
-  const seguidores = fetch(`https://api.github.com/users/${githubUser}/followers`)
-  .then((resp) => {
-    return resp.json();
-  })
-  .then((resp) => {
-    console.log(resp);
-    return resp;
-  })
+  const [seguidores, setSeguidores] = useState([]); 
+
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${githubUser}/followers`)
+    .then((resp) => {
+      return resp.json();
+    })
+    .then((resp) => {
+      setSeguidores(resp); 
+      return resp;
+    });
+  }, []);
 
 
   function handleCreateComunity(event) {
@@ -95,7 +101,6 @@ export default function Home() {
     setComunidades(ComunidadesAtualizadas);
   }
 
-// 45:00
 
   return (
     <>
@@ -148,7 +153,7 @@ export default function Home() {
           </Box>
         </div>
         <div className="profileRelationsArea" style={{ gridArea: "profileRelationsArea"}}>
-          <ProfileRelationsBox items={seguidores}/>
+          
           <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">
               Meus Amigos ({pessoasFavoritas.length})
@@ -170,28 +175,7 @@ export default function Home() {
             </ul>
           </ProfileRelationsBoxWrapper>
 
-          <ProfileRelationsBoxWrapper >
-            <h2 className="smallTitle">
-              Seguidores ({seguidores.length})
-            </h2>
-            <ul>
-              {console.log("seguidores = " + seguidores)}
-              {seguidores.map((seguidor, index) => {
-                  if(index > 5){
-                    return;
-                  }
-                  return (
-                    <li key={seguidor.id}>
-                        <a href={seguidor.html_url} key={seguidor.html_url} target="_blank">
-                          <img src={seguidor.avatar_url}/>
-                          <span>{seguidor.login}</span>
-                        </a>
-                    </li>
-                  );
-              })}
-            
-            </ul>
-          </ProfileRelationsBoxWrapper>
+          <ProfileRelationsBox items={seguidores} title="Seguidores"/>
 
           <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">

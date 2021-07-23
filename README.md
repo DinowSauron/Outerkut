@@ -13,8 +13,6 @@ Este projeto é uma "repaginação" do site chamado Orkut.
 * Styled components.
 * Responsividade.
 
-  23:40 3ª aula. :D
-
 ## Notas:
 ...
  
