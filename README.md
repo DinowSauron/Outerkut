@@ -9,13 +9,16 @@ Este projeto é uma "repaginação" do site chamado Orkut.
 * CSS3.
 * ReactJS.
 * NEXT JS.
+* DATO CMS.
 * Styled components.
 * Responsividade.
 
+  23:40 3ª aula. :D
+
 ## Notas:
 ...
-
-Achei bem horrivel o fato das imagens serem carregadas pelo app deles, se o app deles parar de funcionar o meu também iria, então adaptei o código e coloquei as fotos localmente, foi bem trabalhoso mais achei necessário, e o minimo que eles poderiam ter feito era dar as fotos.
+ 
+Não gostei do fato das imagens serem carregadas pelo website deles, se o app deles parar de funcionar o meu também iria, então adaptei o código e coloquei as fotos localmente, foi bem trabalhoso mais achei necessário, e o minimo que eles poderiam ter feito era dar as fotos.
 
 * React developer tools for chrome.
 * https://www.youtube.com/c/DevSoutinho/videos - Dev Soutino.

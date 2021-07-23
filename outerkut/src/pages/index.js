@@ -22,7 +22,31 @@ function ProfileSidebar(props){
     </Box>
   )
 }
-// 1:36:00
+
+function ProfileRelationsBox(){
+  return (
+    <ProfileRelationsBoxWrapper >
+    <h2 className="smallTitle">
+      Minhas Comunidades ({comunidades.length})
+    </h2>
+    <ul>
+      {comunidades.map((comunidade, index) => {
+        if(index > 5){
+          return;
+        }
+        return (
+          <li key={comunidade.id}>
+              <a href={comunidade.link} key={comunidade.title} target="_blank">
+                <img src={comunidade.image}/>
+                <span>{comunidade.title}</span>
+              </a>
+          </li>
+        );
+      })}
+    );
+  </ul>
+</ProfileRelationsBoxWrapper>
+}
 export default function Home() {
 
 
@@ -41,10 +65,17 @@ export default function Home() {
     }
   ];
 
-  console.log(parseInt(Math.random(1) * 9000))
   const [comunidades, setComunidades] = useState(ComunidadseIniciais);
   const pessoasFavoritas = [...(githubUser!="DinowSauron" ? ["DinowSauron", "LuckyCards"] : ["LuckyCards"]), "SebLague", "FilipeDeschamps", "JVictorDias", "omariosouto",  "peas", "alura-cursos", "rocketseat"];
 
+  const seguidores = fetch(`https://api.github.com/users/${githubUser}/followers`)
+  .then((resp) => {
+    return resp.json();
+  })
+  .then((resp) => {
+    console.log(resp);
+    return resp;
+  })
 
 
   function handleCreateComunity(event) {
@@ -63,7 +94,7 @@ export default function Home() {
     setComunidades(ComunidadesAtualizadas);
   }
 
-
+// 45:00
 
   return (
     <>
@@ -116,7 +147,7 @@ export default function Home() {
           </Box>
         </div>
         <div className="profileRelationsArea" style={{ gridArea: "profileRelationsArea"}}>
-          
+          <ProfileRelationsBox items={seguidores}/>
           <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">
               Meus Amigos ({pessoasFavoritas.length})
@@ -135,6 +166,29 @@ export default function Home() {
                   </li>
                 );
               })}
+            </ul>
+          </ProfileRelationsBoxWrapper>
+
+          <ProfileRelationsBoxWrapper >
+            <h2 className="smallTitle">
+              Seguidores ({seguidores.length})
+            </h2>
+            <ul>
+              {console.log("seguidores = " + seguidores)}
+              {seguidores.map((seguidor, index) => {
+                  if(index > 5){
+                    return;
+                  }
+                  return (
+                    <li key={seguidor.id}>
+                        <a href={seguidor.html_url} key={seguidor.html_url} target="_blank">
+                          <img src={seguidor.avatar_url}/>
+                          <span>{seguidor.login}</span>
+                        </a>
+                    </li>
+                  );
+              })}
+            
             </ul>
           </ProfileRelationsBoxWrapper>
 
