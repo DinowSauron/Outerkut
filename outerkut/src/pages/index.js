@@ -23,30 +23,31 @@ function ProfileSidebar(props){
   )
 }
 
-function ProfileRelationsBox(){
+function ProfileRelationsBox() {
   return (
     <ProfileRelationsBoxWrapper >
-    <h2 className="smallTitle">
-      Minhas Comunidades ({comunidades.length})
-    </h2>
-    <ul>
-      {comunidades.map((comunidade, index) => {
-        if(index > 5){
-          return;
-        }
-        return (
-          <li key={comunidade.id}>
-              <a href={comunidade.link} key={comunidade.title} target="_blank">
-                <img src={comunidade.image}/>
-                <span>{comunidade.title}</span>
-              </a>
-          </li>
-        );
-      })}
-    );
-  </ul>
-</ProfileRelationsBoxWrapper>
+      <h2 className="smallTitle">
+        Minhas Comunidades ({comunidades.length})
+      </h2>
+      <ul>
+        {comunidades.map((comunidade, index) => {
+          if(index > 5){
+            return;
+          }
+          return (
+            <li key={comunidade.id}>
+                <a href={comunidade.link} key={comunidade.title} target="_blank">
+                  <img src={comunidade.image}/>
+                  <span>{comunidade.title}</span>
+                </a>
+            </li>
+          );
+        })}
+      </ul>
+    </ProfileRelationsBoxWrapper>
+  )
 }
+
 export default function Home() {
 
 
