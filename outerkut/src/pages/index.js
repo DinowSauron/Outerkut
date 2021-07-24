@@ -30,25 +30,24 @@ function ProfileRelationsBox(props) {
         {props.title} ({props.items.length})
       </h2>
       <ul>
-        {/*props.items.map((item, index) => {
+        {props.items.map((item, index) => {
           if(index > 5){
             return;
           }
           return (
             <li key={item.id}>
-                <a href={item.link} key={item.title} target="_blank">
-                  <img src={item.image}/>
-                  <span>{item.title}</span>
+                <a href={item.html_url} target="_blank">
+                  <img src={item.avatar_url}/>
+                  <span>{item.login}</span>
                 </a>
             </li>
           );
-        })*/}
+        })}
       </ul>
     </ProfileRelationsBoxWrapper>
   )
 }
 
-// 1:06:00
 
 export default function Home() {
 
@@ -79,7 +78,8 @@ export default function Home() {
       return resp.json();
     })
     .then((resp) => {
-      setSeguidores(resp); 
+      setSeguidores(resp);
+      console.log(resp);
       return resp;
     });
   }, []);
