@@ -48,39 +48,53 @@ function ProfileRelationsBox(props) {
   )
 }
 
+// 42 min
 
 export default function Home() {
 
 
   const githubUser = "DinowSauron";
-  const ComunidadseIniciais = [{
-      id: "1000001",
-      title: "The Redstone Br",
-      image: "https://yt3.ggpht.com/ytc/AKedOLT9G5r7qbF8wntgwbvzc5OhzsSHUbvLWWcHiFOAJQ=s88-c-k-c0x00ffffff-no-rj",
-      link: "https://www.youtube.com/theredstonebr"
-    },
-    {
-      id: "1000002",
-      title: "Narrando Conhecimento",
-      image: "https://yt3.ggpht.com/ytc/AKedOLQbIrizss0cJ6uzx2gZG01lfSm7GcfraVN3oyui=s88-c-k-c0x00ffffff-no-rj",
-      link: "https://www.youtube.com/channel/UCVhZsHJcSDLVUeYN6T419lw"
-    }
-  ];
 
-  const [comunidades, setComunidades] = useState(ComunidadseIniciais);
   const pessoasFavoritas = [...(githubUser!="DinowSauron" ? ["DinowSauron", "LuckyCards"] : ["LuckyCards"]), "SebLague", "FilipeDeschamps", "JVictorDias", "omariosouto",  "peas", "alura-cursos", "rocketseat"];
 
   const [seguidores, setSeguidores] = useState([]); 
+  const [comunidades, setComunidades]  = useState([]);
 
   useEffect(() => {
+    // GET
     fetch(`https://api.github.com/users/${githubUser}/followers`)
     .then((resp) => {
       return resp.json();
     })
     .then((resp) => {
       setSeguidores(resp);
-      console.log(resp);
+      // console.log(resp);
       return resp;
+    });
+    // POST (precisa de um objeto de configurações!)
+    fetch("https://graphql.datocms.com/", {
+      method: "POST",
+      headers: {
+        "authorization": process.env.NEXT_PUBLIC_AUTH,
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({ "query": `query {
+        allCommunities {
+          id
+          title
+          imageUrl
+          linkUrl
+          creatorSlug
+          _status
+          _firstPublishedAt
+        }
+      }`}),
+    })
+    .then((resp) => resp.json())
+    .then((resp) => {
+      setComunidades(resp.data.allCommunities);
+      // console.log(resp.data.allCommunities);
     });
   }, []);
 
@@ -188,8 +202,8 @@ export default function Home() {
                 }
                 return (
                   <li key={comunidade.id}>
-                      <a href={comunidade.link} key={comunidade.title} target="_blank">
-                        <img src={comunidade.image}/>
+                      <a href={comunidade.linkUrl} key={comunidade.title} target="_blank">
+                        <img src={comunidade.imageUrl}/>
                         <span>{comunidade.title}</span>
                       </a>
                   </li>
