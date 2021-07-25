@@ -19,7 +19,7 @@
 
 Este projeto é um aplicativo de rede social onde é necessário "logar" na sua conta do github e com isso pode ver seus seguidores/amigos/comunidades, tudo isso incrementando a API do github junto com o banco de dados do DATO CMS.
 
-Note que o projeto foi feito no evento da Alura chamado **Imersão React #3** porém eu decidi mudar o nome do projeto e seu estilo, além das alterações no código.
+Note que o projeto foi feito no evento da Alura chamado **Imersão React #2** porém eu decidi mudar o nome do projeto e seu estilo, além das alterações no código.
 
 ## Tecnologias Utilizadas:
 
@@ -40,7 +40,8 @@ Note que o projeto foi feito no evento da Alura chamado **Imersão React #3** po
     * .env.local 
     ```env
         # DATO CMS
-        NEXT_PUBLIC_AUTH=DatoAuthTokenNumber 
+        NEXT_PUBLIC_AUTH=DatoReadOnlyToken
+        FULL_ACESS_TOKEN=DatoFullAcessToken
     ```
     * No [DATO CMS](https://www.datocms.com/), crie o seguinte modelo, com o nome exatamente igual, todos sendo uma string de linha única:
     ```

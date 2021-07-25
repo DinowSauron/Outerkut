@@ -48,7 +48,6 @@ function ProfileRelationsBox(props) {
   )
 }
 
-// 42 min
 
 export default function Home() {
 
@@ -59,6 +58,9 @@ export default function Home() {
 
   const [seguidores, setSeguidores] = useState([]); 
   const [comunidades, setComunidades]  = useState([]);
+
+
+  // 1:27:00
 
   useEffect(() => {
     // GET
