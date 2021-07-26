@@ -35,7 +35,7 @@ Note que o projeto foi feito no evento da Alura chamado **Imersão React #2** po
 
 ## Como Inicializar:
 * `cd outerkut` Para abrir no diretório correto.
-* `yarn dev` Para inicializar o projeto.
+* `yarn install` Instala todas as dependencias
 * Crie um arquivo .env.local dentro da pasta [Outerkut](./outerkut/) e coloque sua Autenticação do DATO CMS
     * .env.local 
     ```env
@@ -51,6 +51,7 @@ Note que o projeto foi feito no evento da Alura chamado **Imersão React #2** po
         Link URL
         Creator Slug
     ```
+* `yarn dev` Para inicializar o projeto.
 
 ## Notas Pessoais:
 ...
@@ -83,9 +84,11 @@ Graph QL:
 
 ## Comandos Utilizados:
 
-* ``yarn create next-app --example with-styled-components "Nome do app"`` - Criar a aplicação.
-* ``cd "nome do app"` - entrar na pasta do app.
-* ``yarn dev`` - iniciar servidor de desenvolvimento.
+* `yarn create next-app --example with-styled-components "Nome do app"` - Criar a aplicação.
+* `cd "nome do app"` - entrar na pasta do app.
+* `yarn dev` - iniciar servidor de desenvolvimento.
+* `yarn add dato-cms` - api do servidor do dato
+* `yarn add nookies` - instalar o pacote nookies.
 
 
 

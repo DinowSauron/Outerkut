@@ -49,10 +49,10 @@ function ProfileRelationsBox(props) {
 }
 
 
-export default function Home() {
+export default function Home(props) {
 
 
-  const githubUser = "DinowSauron";
+  const githubUser = props.githubUser;
 
   const pessoasFavoritas = [...(githubUser!="DinowSauron" ? ["DinowSauron", "LuckyCards"] : ["LuckyCards"]), "SebLague", "FilipeDeschamps", "JVictorDias", "omariosouto",  "peas", "alura-cursos", "rocketseat"];
 
@@ -230,3 +230,17 @@ export default function Home() {
     </>
   );
 }
+
+
+export async function getServerSideProps(centext) {
+
+
+
+  return {  
+    props: {
+      githubUser: "juunegreiros"
+    },
+  }
+}
+
+// 1:11
