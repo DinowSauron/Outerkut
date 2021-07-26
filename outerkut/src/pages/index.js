@@ -107,14 +107,26 @@ export default function Home() {
     const dadosDoForm = new FormData(event.target);
 
     const newComunidade = {
-      id: new Date().toISOString(),
       title: dadosDoForm.get("title"),
-      image: dadosDoForm.get("image"),
+      imageUrl: dadosDoForm.get("image"),
+      linkUrl: dadosDoForm.get("link"),
+      creatorSlug: githubUser
     }
 
-    const ComunidadesAtualizadas = [...comunidades, newComunidade];
+    fetch("/api/comunidades", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(newComunidade),
+    })
+    .then(async (res) => {
+      const dados = await res.json();
+      const newComunidade = dados.registroCriado;
+      const ComunidadesAtualizadas = [...comunidades, newComunidade];
+      setComunidades(ComunidadesAtualizadas);
+    })
 
-    setComunidades(ComunidadesAtualizadas);
   }
 
 

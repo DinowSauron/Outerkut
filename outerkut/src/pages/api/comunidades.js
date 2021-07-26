@@ -15,10 +15,11 @@ export default async function recebedorDeRequest(request, response){
     
     const registroCriado = await client.items.create({
         itemType: "1005140", // ID do model "Comunity"
-        title: "comunidade Teste",
-        imageUrl: "https://github.com/DinowSauron.png",
-        linkUrl: "nenhum",
-        creatorSlug: "DinowSauron",
+        ...request.body,
+        // title: "comunidade Teste",
+        // imageUrl: "https://github.com/DinowSauron.png",
+        // linkUrl: "nenhum",
+        // creatorSlug: "DinowSauron",
 
     })
 
