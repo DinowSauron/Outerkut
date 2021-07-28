@@ -12,14 +12,34 @@
 <p align="center">
    <a href="#Como-Inicializar">Como Inicializar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#Comandos-Utilizados">Comandos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="https://outerkut.vercel.app/login">Website</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="/LICENSE">Licença</a>
 </p>
 
 
 
-Este projeto é um aplicativo de rede social onde é necessário "logar" na sua conta do github e com isso pode ver seus seguidores/amigos/comunidades, tudo isso incrementando a API do github junto com o banco de dados do DATO CMS.
+Este projeto é um aplicativo de rede social onde é necessário "logar" na sua conta do github e com isso pode ver seus seguidores/amigos/comunidades, tudo isso incrementando uma API local e a API do github junto com o banco de dados do DATO CMS.
 
 Note que o projeto foi feito no evento da Alura chamado **Imersão React #2** porém eu decidi mudar o nome do projeto e seu estilo, além das alterações no código.
+
+Acesse agora mesmo o projeto na Vercel [clicando aqui](https://outerkut.vercel.app/login)
+
+
+
+<a href="https://github.com/DinowSauron/Outerkut" target="_blank">
+    <p style="display: flex; margin-top: 60px" >
+        <img style="margin: auto;" src="./pictures/login2.png" width="48%" alt="">
+        <img style="margin: auto;" src="./pictures/room1.png" width="48%" alt="">
+    </p>
+    <p style="display: flex; margin-top: 20px">
+        <img style="margin: auto;" src="./pictures/login2.png" width="48%" alt="">
+        <img style="margin: auto;" src="./pictures/room2.png" width="48%" alt="">
+    </p>  
+</a>
+
+*Note que o login pega as informações publicas, nenhuma senha é necessária, pois a api consulta as informações publicas do seu login(nome, seguidores, etc), nenhuma senha é pedida e nem obtida pelo programa, pois ele não precisa!*
+
+---
 
 ## Tecnologias Utilizadas:
 
@@ -29,6 +49,7 @@ Note que o projeto foi feito no evento da Alura chamado **Imersão React #2** po
 * NEXT JS.
 * DATO CMS.
 * GraphQL.
+* Cookies [(JWT)](https://jwt.io/).
 * Styled components.
 * Responsividade.
 
@@ -68,7 +89,7 @@ Fiz minha propia api para gerar o token do usuario.
 Não tinha gostado do fato das imagens serem carregadas pelo website deles, se o app deles parar de funcionar o meu também iria, então adaptei o código e coloquei as fotos localmente, foi bem trabalhoso mais achei necessário.
 
 * React developer tools for chrome.
-* https://www.youtube.com/c/DevSoutinho/videos - Dev Soutino.
+* https://www.youtube.com/c/DevSoutinho/videos - Dev Soutino. 
 * Reset CSS | Normalize CSS.
 * CSS grid garden (Game).
 * Spread operator (...Array)
@@ -101,6 +122,9 @@ Graph QL:
 * `yarn add jsonwebtoken` - instalar o decodificador de token.
 
 
+
+## Licença:
+Note que este projeto está sob a licensa MIT. Veja o arquivo para mais detalhes: <a href="/LICENSE">LICENSE</a>
 
 
 
