@@ -33,7 +33,7 @@ export function OuterkutMenu({ githubUser }) {
         </nav>
 
         <nav>
-          <a href={`/logout`}>
+          <a href={`/login`}>
             Sair
           </a>
           <div>
@@ -209,7 +209,7 @@ export function OuterkutProfileSidebarMenuDefault() {
           <img src={"icons/plus.svg"} />
             GitHub Trends
           </a>
-        <a href="/logout">
+        <a href="/login">
           <img src={"icons/logout.svg"} />
             Sair
           </a>
@@ -378,6 +378,23 @@ const OuterkutLoginScreen = css`
         max-height: 45px;
         margin-bottom: 36px;
       }
+    }
+    
+    h2 {
+      margin-top: 100px;
+      font-size: 2.8rem;
+      text-decoration: none;
+      color: var(--colorQuarternary);
+    }
+    button {
+      width: 30%;
+      display: block;
+      border: 0;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: var(--commonRadius);
+      background-color: var(--colorPrimary);
+      color: var(--textSecondaryColor);
     }
     .formArea {
       grid-area: formArea;

@@ -1,5 +1,6 @@
 import React from "react";
 // Hook do NextJS
+import jwt from "jsonwebtoken";
 import { useRouter } from "next/router";
 import nookies from "nookies";
 
@@ -12,8 +13,8 @@ export default function Login() {
     function Acessar (event) {
         event.preventDefault();
         // alert("Alguém clicou no botão!")
-        console.log("Usuário: ", githubUser)
-        fetch("https://alurakut.vercel.app/api/login", {
+        console.log("Usuário:", githubUser)
+        fetch("/api/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"  
@@ -25,17 +26,7 @@ export default function Login() {
             const token = dadosDaResposta.token;
             nookies.set(null, "USER_TOKEN", token, {
                 path: "/",
-                maxAge: 86400 * 7 
-            });
-            router.push("/");
-        })
-        .catch(() => {
-            // não é a melhor forma, porém o servidor que gera o token não foi disponibilizado pelo evento.
-            // Para evitar dele ficar fora do ar e todo meu projeto ser destruído, tive que fazer essa triste alternativa.
-            console.log("Servidor indisponivel, modo manual tivado");
-            nookies.set(null, "ERROR_TOKEN", githubUser, {
-                path: "/",
-                maxAge: 86400 * 1
+                maxAge: 86400 * 2 
             });
             router.push("/");
         });
@@ -72,7 +63,7 @@ export default function Login() {
                     }   
                 </p>
                 <button type="submit">
-                Login
+                    Login
                 </button>
             </form>
 
@@ -81,8 +72,8 @@ export default function Login() {
                 Ainda não é membro? <br />
                 <a href="/login">
                     <strong>
-                    ENTRAR JÁ
-                </strong>
+                        ENTRAR JÁ
+                    </strong>
                 </a>
                 </p>
             </footer>

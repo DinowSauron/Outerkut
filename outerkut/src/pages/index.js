@@ -1,9 +1,11 @@
 
-import {useState, useEffect} from "react"
-import MainGrid from "../components/MainGrid"
-import Box from "../components/Box"
-import { ProfileRelationsBoxWrapper } from "../components/ProfileRelations"
-import { OrkutNostalgicIconSet, OuterkutMenu, OuterkutProfileSidebarMenuDefault } from "../lib/outerkutCommons"
+import {useState, useEffect} from "react";
+import MainGrid from "../components/MainGrid";
+import Box from "../components/Box";
+import nookies from "nookies";
+import jwt from "jsonwebtoken";
+import { ProfileRelationsBoxWrapper } from "../components/ProfileRelations";
+import { OrkutNostalgicIconSet, OuterkutMenu, OuterkutProfileSidebarMenuDefault } from "../lib/outerkutCommons";
 
 function ProfileSidebar(props){
   return (
@@ -232,15 +234,36 @@ export default function Home(props) {
 }
 
 
-export async function getServerSideProps(centext) {
+export async function getServerSideProps(context) {
+  const cookies = nookies.get(context);
+  const token = cookies.USER_TOKEN;
 
+  // console.log(jwt.sign(JSON.stringify("NomeLegal"),'256'));  //criar token
+  // console.log(`${process.env.ABSOLUTE_PATH}/api/auth`);
+  const { isAuthenticated } = await fetch(`${process.env.ABSOLUTE_PATH}/api/auth`, {
+    method: "POST",
+    headers: {
+      Authorization: token,
+    }
+  })
+  .then((res) => res.json());
+  console.log(isAuthenticated)
 
+  if(!isAuthenticated){
+    return {
+      redirect: {
+        destination: "/failed",
+        permanent: false
+      }
+    }
+  }
 
+  const userName = jwt.decode(token).githubUser;
   return {  
     props: {
-      githubUser: "juunegreiros"
+      githubUser: userName
     },
   }
 }
 
-// 1:11
+// 1:11 

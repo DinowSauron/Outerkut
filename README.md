@@ -42,6 +42,9 @@ Note que o projeto foi feito no evento da Alura chamado **Imersão React #2** po
         # DATO CMS
         NEXT_PUBLIC_AUTH=DatoReadOnlyToken
         FULL_ACESS_TOKEN=DatoFullAcessToken
+        
+        COOKIE_TOKEN=Any256BitKeyToken   
+        ABSOLUTE_PATH=YourProjectURL #(http://localhost:3000) 
     ```
     * No [DATO CMS](https://www.datocms.com/), crie o seguinte modelo, com o nome exatamente igual, todos sendo uma string de linha única:
     ```
@@ -55,7 +58,12 @@ Note que o projeto foi feito no evento da Alura chamado **Imersão React #2** po
 
 ## Notas Pessoais:
 ...
-Interresante o fato do projeto estar consultando diversas AP?I, como a do github e a do DATO CMS.
+
+O grande diferencial do meu projeto para qualquer outro desta imersão é principalmente a autonomia, pois todas as imagens e servições onde precisava consultar o app da alura da vercel foram substituidos por versões locais, inclusive o gerador de tokens para os cookies e  o sistema de autorização/validação de tokens.
+
+Interresante o fato do projeto estar consultando diversas API, como a do github a do DATO CMS e até mesmo api local.
+
+Fiz minha propia api para gerar o token do usuario.
  
 Não tinha gostado do fato das imagens serem carregadas pelo website deles, se o app deles parar de funcionar o meu também iria, então adaptei o código e coloquei as fotos localmente, foi bem trabalhoso mais achei necessário.
 
@@ -64,6 +72,7 @@ Não tinha gostado do fato das imagens serem carregadas pelo website deles, se o
 * Reset CSS | Normalize CSS.
 * CSS grid garden (Game).
 * Spread operator (...Array)
+* JWT (Jsonwebtoken)
 
 ## DATO CMS Config:
 
@@ -87,8 +96,9 @@ Graph QL:
 * `yarn create next-app --example with-styled-components "Nome do app"` - Criar a aplicação.
 * `cd "nome do app"` - entrar na pasta do app.
 * `yarn dev` - iniciar servidor de desenvolvimento.
-* `yarn add dato-cms` - api do servidor do dato
+* `yarn add dato-cms` - api do servidor do dato.
 * `yarn add nookies` - instalar o pacote nookies.
+* `yarn add jsonwebtoken` - instalar o decodificador de token.
 
 
 
