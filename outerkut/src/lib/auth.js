@@ -1,25 +1,13 @@
 import jwt from "jsonwebtoken";
 
-export default async function recebedorDeRequest(request, response){
+export async function userIsAuthenticated(token){
     function NotAuthenticated(err) {
-        response.json({
-            isAuthenticated: false,
-            error: err
-        });
-        
-        return;
-    }
-    if(request.method != "POST"){
-        NotAuthenticated("Invalid Method");
-        return;
+        return false;
     }
     
-    const token = request.headers.authorization;
     if(!token){
-        NotAuthenticated("No Token in cookies");
-        return;
+        return false;
     }
-
 
     const userName = jwt.decode(token).githubUser;
     const life = jwt.decode(token).exp;
@@ -47,11 +35,9 @@ export default async function recebedorDeRequest(request, response){
 
     if(gitService) {
         NotAuthenticated("Github service not avalible / Wrong Username");
-        return;
+        return false;
     }
 
-    response.json({
-        isAuthenticated: true,
-    })
+    return true;
     
 }

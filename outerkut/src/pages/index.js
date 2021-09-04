@@ -4,6 +4,7 @@ import MainGrid from "../components/MainGrid";
 import Box from "../components/Box";
 import nookies from "nookies";
 import jwt from "jsonwebtoken";
+import { userIsAuthenticated } from "../lib/auth.js"
 import { ProfileRelationsBoxWrapper } from "../components/ProfileRelations";
 import { OrkutNostalgicIconSet, OuterkutMenu, OuterkutProfileSidebarMenuDefault } from "../lib/outerkutCommons";
 
@@ -234,19 +235,14 @@ export default function Home(props) {
 }
 
 
+
 export async function getServerSideProps(context) {
   const cookies = nookies.get(context);
   const token = cookies.USER_TOKEN;
 
   // console.log(jwt.sign(JSON.stringify("NomeLegal"),'256'));  //criar token
   // console.log(`${process.env.ABSOLUTE_PATH}/api/auth`);
-  const { isAuthenticated } = await fetch(`${process.env.ABSOLUTE_PATH}/api/auth`, {
-    method: "POST",
-    headers: {
-      Authorization: token,
-    }
-  })
-  .then((res) => res.json());
+  const isAuthenticated = await userIsAuthenticated(token);
   console.log(isAuthenticated)
 
   if(!isAuthenticated){
