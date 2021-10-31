@@ -28,7 +28,7 @@ Acesse agora mesmo o projeto na Vercel [clicando aqui](https://outerkut.vercel.a
 
 <a href="https://github.com/DinowSauron/Outerkut" target="_blank">
     <p style="display: flex; margin-top: 60px" >
-        <img style="margin: auto;" src="./pictures/login2.png" width="49%" alt="">
+        <img style="margin: auto;" src="./pictures/login1.png" width="49%" alt="">
         <img style="margin: auto;" src="./pictures/room1.png" width="49%" alt="">
     </p>
     <p style="display: flex; margin-top: 20px">
